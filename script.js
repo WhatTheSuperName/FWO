@@ -85,23 +85,37 @@ window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
-document.addEventListener('DOMContentLoaded', init);
-
-const style = document.createElement('style');
-style.textContent = `
-    .glitch-text {
-        animation: glitchSkew 4s infinite;
+document.addEventListener('DOMContentLoaded', () => {
+    init();
+    
+    const pcMode = document.getElementById('pcMode');
+    const mobileMode = document.getElementById('mobileMode');
+    const pcInterfaces = document.querySelectorAll('.pc-interface');
+    const mobileInterfaces = document.querySelectorAll('.mobile-interface');
+    
+    function setInterface(mode) {
+        if (mode === 'pc') {
+            pcInterfaces.forEach(el => el.classList.remove('hidden'));
+            mobileInterfaces.forEach(el => el.classList.add('hidden'));
+            pcMode.classList.add('active');
+            mobileMode.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        } else {
+            pcInterfaces.forEach(el => el.classList.add('hidden'));
+            mobileInterfaces.forEach(el => el.classList.remove('hidden'));
+            mobileMode.classList.add('active');
+            pcMode.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     }
     
-    @keyframes glitchSkew {
-        0%, 100% { transform: skew(0deg, 0deg); }
-        10% { transform: skew(1deg, 0.5deg); }
-        20% { transform: skew(-1deg, -0.5deg); }
-        30% { transform: skew(2deg, 1deg); }
-        40% { transform: skew(-2deg, -1deg); }
+    pcMode.addEventListener('click', () => setInterface('pc'));
+    mobileMode.addEventListener('click', () => setInterface('mobile'));
+    
+    if (window.innerWidth <= 768) {
+        setInterface('mobile');
     }
-`;
-document.head.appendChild(style);
+});
 
 const mouseMove = (e) => {
     const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
