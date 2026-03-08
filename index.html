@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FWO — Freedom Warriors Online</title>
+    <title>FWO — Free Web Organization</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,22 @@
 <body>
     <div id="canvas-container"></div>
     
+    <div class="interface-switch">
+        <button id="pcMode" class="switch-btn 3d-btn active">
+            <span class="btn-content">
+                <span class="btn-icon">🖥️</span>
+                <span class="btn-text">PC</span>
+            </span>
+        </button>
+        <button id="mobileMode" class="switch-btn 3d-btn">
+            <span class="btn-content">
+                <span class="btn-icon">📱</span>
+                <span class="btn-text">Mobile</span>
+            </span>
+        </button>
+        <div class="switch-glow"></div>
+    </div>
+
     <nav class="navbar">
         <div class="logo">FWO</div>
         <div class="nav-links">
@@ -20,10 +36,10 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main class="container pc-interface">
         <div class="hero">
             <h1 class="glitch" data-text="FWO">FWO</h1>
-            <p class="subtitle">Freedom Warriors Online</p>
+            <p class="subtitle">Free Web Organization</p>
             <div class="divider"></div>
         </div>
 
@@ -37,7 +53,7 @@
             
             <div class="stats-grid">
                 <div class="stat-item">
-                    <div class="stat-number">2019</div>
+                    <div class="stat-number">2026</div>
                     <div class="stat-label">Founded</div>
                 </div>
                 <div class="stat-item">
@@ -60,6 +76,50 @@
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
+        </div>
+    </main>
+
+    <main class="container mobile-interface hidden">
+        <div class="mobile-header">
+            <div class="mobile-logo">FWO</div>
+            <div class="mobile-subtitle">Free Web Organization</div>
+        </div>
+
+        <div class="mobile-card glass">
+            <div class="mobile-hero">
+                <span class="mobile-year">2026</span>
+                <h2>writing history</h2>
+            </div>
+            
+            <div class="mobile-quote">
+                <p>From this moment on, we are writing the history of the internet.</p>
+            </div>
+
+            <div class="mobile-stats">
+                <div class="mobile-stat">
+                    <span class="mobile-stat-value">∞</span>
+                    <span class="mobile-stat-label">freedom</span>
+                </div>
+                <div class="mobile-stat">
+                    <span class="mobile-stat-value">24/7</span>
+                    <span class="mobile-stat-label">protection</span>
+                </div>
+            </div>
+
+            <div class="mobile-mission">
+                <p>Specialized people fighting for human freedom on the internet.</p>
+            </div>
+
+            <div class="mobile-nav">
+                <a href="index.html" class="mobile-nav-item active">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="vpn.html" class="mobile-nav-item">
+                    <span class="nav-icon">🔒</span>
+                    <span>VPN</span>
+                </a>
+            </div>
         </div>
     </main>
 
